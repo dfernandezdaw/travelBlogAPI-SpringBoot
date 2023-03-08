@@ -30,8 +30,8 @@ public class Comment {
     @JoinColumn(name = "travel_id", nullable = false)
     private Travel travel;
 
-/*    // Relationship with User model. One comment can be made by one user. Many comments to one user
+   // Relationship with User model. One comment can be made by one user. Many comments to one user
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;*/
+    private User user;
 }

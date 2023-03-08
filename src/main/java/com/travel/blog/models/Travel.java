@@ -3,6 +3,7 @@ package com.travel.blog.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,14 +25,14 @@ public class Travel {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, length = 1500)
     private String description;
 
     @Column(name = "image", nullable = false)
     private String image;
 
     @Column(name = "date", nullable = false)
-    private String date;
+    private Date date;
 
     @Column(name = "location", nullable = false)
     private String location;
@@ -42,4 +43,13 @@ public class Travel {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Categories category;
+
+    public Travel(String title, String description, String image, Date date, String location, Categories category) {
+        this.title = title;
+        this.description = description;
+        this.image = image;
+        this.date = date;
+        this.location = location;
+        this.category = category;
+    }
 }

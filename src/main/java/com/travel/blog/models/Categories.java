@@ -25,5 +25,7 @@ public class Categories {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Travel> travels;
 
-
+    public Categories(String name) {
+        this.name = name;
+    }
 }
