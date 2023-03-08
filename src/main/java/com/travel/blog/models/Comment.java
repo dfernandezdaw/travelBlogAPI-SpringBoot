@@ -19,14 +19,19 @@ public class Comment {
 
     @Column(name = "comment", nullable = false)
     private String comment;
+    // User has to enter email and name in the form to create a comment
+    @Column(name = "email", nullable = false)
+    private String email;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    // Relationship whit Travel. One comment belongs to one travel.
+    // Relationship whit Travel. One comment belongs to one travel. Many comments to one travel
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "travel_id", nullable = false)
     private Travel travel;
 
-    // Relationship with User model. One comment can be made by one user.
+/*    // Relationship with User model. One comment can be made by one user. Many comments to one user
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User user;*/
 }
