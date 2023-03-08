@@ -40,6 +40,6 @@ public class Travel {
     private Set<Comment> comments = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "continent_id")
-    private Continents continent;
+    @JoinColumn(name = "category_id")
+    private Categories category;
 }

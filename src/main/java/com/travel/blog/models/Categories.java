@@ -13,15 +13,16 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "continents")
-public class Continents {
+@Table(name = "categories")
+public class Categories {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String continent;
-    private String image;
-    private String description;
-    @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL)
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Travel> travels;
 
 
