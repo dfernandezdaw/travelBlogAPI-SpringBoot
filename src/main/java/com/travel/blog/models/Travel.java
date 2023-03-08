@@ -38,4 +38,8 @@ public class Travel {
 
     @OneToMany(mappedBy = "travel", cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "continent_id")
+    private Continents continent;
 }
