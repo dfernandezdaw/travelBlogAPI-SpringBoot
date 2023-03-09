@@ -30,10 +30,10 @@ public class Seeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        travelRepository.deleteAll();
-        categoriesRepository.deleteAll();
-        commentRepository.deleteAll();
-        userRepository.deleteAll();
+        //travelRepository.deleteAll();
+        //categoriesRepository.deleteAll();
+        //commentRepository.deleteAll();
+        //userRepository.deleteAll();
 
         //Create travel
         //Create comment
