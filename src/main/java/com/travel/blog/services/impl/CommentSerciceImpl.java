@@ -64,6 +64,31 @@ public class CommentSerciceImpl implements CommentService {
         return convertToDTO(comment);
     }
 
+    @Override
+    public CommentDTO updateComment(Long travelId, Long commentId, CommentDTO commentDTO) {
+        //Get travel by id
+        Travel travel = travelRepository.findById(travelId).orElseThrow(
+                () -> new ResourceNotFoundException("Travel", "id", travelId));
+
+        //Get comment by id
+        Comment comment = commentRepository.findById(commentId).orElseThrow(
+                () -> new ResourceNotFoundException("Comment", "id", commentId));
+
+        //Check if comment belongs to travel
+        if (!comment.getTravel().getId().equals(travel.getId())) {
+            throw new TravelBlogAPIException(HttpStatus.BAD_REQUEST, "Comment does not belong to travel");
+        }
+
+        //Update comment
+        comment.setName(commentDTO.getName());
+        comment.setEmail(commentDTO.getEmail());
+        comment.setComment(commentDTO.getComment());
+
+        //Save comment
+        Comment updatedComment = commentRepository.save(comment);
+        return convertToDTO(updatedComment);
+    }
+
     private CommentDTO convertToDTO(Comment comment) {
         CommentDTO commentDTO = new CommentDTO();
         commentDTO.setId(comment.getId());
