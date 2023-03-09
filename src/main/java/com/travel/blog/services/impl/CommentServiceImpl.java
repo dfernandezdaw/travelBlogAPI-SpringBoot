@@ -8,6 +8,7 @@ import com.travel.blog.payloads.CommentDTO;
 import com.travel.blog.repositories.CommentRepository;
 import com.travel.blog.repositories.TravelRepository;
 import com.travel.blog.services.CommentService;
+import com.travel.blog.services.TravelService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,12 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findAllByTravelId(postId);
 
         //Convert list of comments to list of commentDTOs
+        return comments.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CommentDTO> getAllComments() {
+        List<Comment> comments = commentRepository.findAll();
         return comments.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 

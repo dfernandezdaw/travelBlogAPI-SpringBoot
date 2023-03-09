@@ -10,6 +10,8 @@ public interface CommentService {
 
     List<CommentDTO> getAllCommentsByTravelId(long travelId);
 
+    List<CommentDTO> getAllComments();
+
     CommentDTO getCommentById(Long travelId, Long commentId);
 
     CommentDTO updateComment(Long travelId, Long commentId, CommentDTO commentDTO);
