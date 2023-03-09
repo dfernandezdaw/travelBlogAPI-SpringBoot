@@ -13,4 +13,6 @@ public interface CommentService {
     CommentDTO getCommentById(Long travelId, Long commentId);
 
     CommentDTO updateComment(Long travelId, Long commentId, CommentDTO commentDTO);
+
+    void deleteComment(Long travelId, Long commentId);
 }
