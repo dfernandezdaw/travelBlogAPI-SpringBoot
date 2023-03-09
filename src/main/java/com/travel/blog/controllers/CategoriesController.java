@@ -38,10 +38,17 @@ public class CategoriesController {
 
     //Update category by id
     @PutMapping("/categories/{categoriesId}")
-    public ResponseEntity<CategoriesDTO> updateCategories(@PathVariable Long categoriesId,
+    public ResponseEntity<CategoriesDTO> updateCategory(@PathVariable Long categoriesId,
                                                           @RequestBody CategoriesDTO categoriesDTO) {
-        CategoriesDTO updatedCategories = categoriesService.updateCategories(categoriesId, categoriesDTO);
+        CategoriesDTO updatedCategories = categoriesService.updateCategory(categoriesId, categoriesDTO);
         return new ResponseEntity<>(updatedCategories, HttpStatus.OK);
+    }
+
+    //Delete category by id
+    @DeleteMapping("/categories/{categoriesId}")
+    public ResponseEntity<String> deleteCategory(@PathVariable Long categoriesId) {
+        categoriesService.deleteCategory(categoriesId);
+        return new ResponseEntity<>("Category with id " + categoriesId + " was deleted", HttpStatus.OK);
     }
 
 }

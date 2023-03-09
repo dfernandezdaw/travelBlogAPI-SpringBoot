@@ -42,7 +42,7 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     @Override
-    public CategoriesDTO updateCategories(Long categoriesId, CategoriesDTO categoriesDTO) {
+    public CategoriesDTO updateCategory(Long categoriesId, CategoriesDTO categoriesDTO) {
         Categories categories = categoriesRepository.findById(categoriesId).orElseThrow(
                 () -> new ResourceNotFoundException("Category", "id", categoriesId));
 
@@ -54,8 +54,10 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     @Override
-    public void deleteCategories(Long categoriesId) {
-
+    public void deleteCategory(Long categoriesId) {
+        Categories categories = categoriesRepository.findById(categoriesId).orElseThrow(
+                () -> new ResourceNotFoundException("Category", "id", categoriesId));
+        categoriesRepository.delete(categories);
     }
 
     private CategoriesDTO convertToDTO(Categories category) {
