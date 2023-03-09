@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -119,5 +120,18 @@ class TravelBlogApiApplicationTests {
                 .andExpect(jsonPath("$.comment").value("This is a comment"))
                 .andExpect(jsonPath("$.email").value("david@david.es"))
                 .andExpect(jsonPath("$.name").value("David"));
+    }
+
+    @Test
+    void delete() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.delete("/api/travels/2").contentType("application/json"))
+                .andExpect(status().isOk());
+        assert travelRepository.count() == 2;
+        mvc.perform(MockMvcRequestBuilders.delete("/api/travels/1/comments/1").contentType("application/json"))
+                .andExpect(status().isOk());
+        assert commentRepository.count() == 1; //1 because travel 2 is deleted in previous test which has 1 comment
+        mvc.perform(MockMvcRequestBuilders.delete("/api/categories/1").contentType("application/json"))
+                .andExpect(status().isOk());
+        assert categoriesRepository.count() == 2;
     }
 }
