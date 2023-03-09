@@ -9,6 +9,9 @@ import com.travel.blog.repositories.TravelRepository;
 import com.travel.blog.services.CommentService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CommentSerciceImpl implements CommentService {
 
@@ -21,11 +24,10 @@ public class CommentSerciceImpl implements CommentService {
     }
 
     @Override
-    public CommentDTO createComment(Long travelId, CommentDTO commentDTO) {
+    public CommentDTO createComment(long travelId, CommentDTO commentDTO) {
         Comment comment = convertToEntity(commentDTO);
         //Retrieve travel by id
-        Travel travel = travelRepository.findById(travelId).orElseThrow(
-                () -> new ResourceNotFoundException("Travel", "id", travelId));
+        Travel travel = travelRepository.findById(travelId).orElseThrow(() -> new ResourceNotFoundException("Travel", "id", travelId));
         //Set travel to comment
         comment.setTravel(travel);
         //Save comment
@@ -33,10 +35,21 @@ public class CommentSerciceImpl implements CommentService {
         return convertToDTO(newComment);
     }
 
+    @Override
+    public List<CommentDTO> getAllCommentsByPostId(long postId) {
+        //Get all comments by travel id
+        List<Comment> comments = commentRepository.findAllByTravelId(postId);
+
+        //Convert list of comments to list of commentDTOs
+        return comments.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
     private CommentDTO convertToDTO(Comment comment) {
         CommentDTO commentDTO = new CommentDTO();
         commentDTO.setId(comment.getId());
         commentDTO.setComment(comment.getComment());
+        commentDTO.setEmail(comment.getEmail());
+        commentDTO.setName(comment.getName());
         return commentDTO;
     }
 
@@ -44,6 +57,8 @@ public class CommentSerciceImpl implements CommentService {
         Comment comment = new Comment();
         comment.setId(commentDTO.getId());
         comment.setComment(commentDTO.getComment());
+        comment.setEmail(commentDTO.getEmail());
+        comment.setName(commentDTO.getName());
         return comment;
     }
 }

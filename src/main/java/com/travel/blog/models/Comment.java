@@ -32,6 +32,14 @@ public class Comment {
 
    // Relationship with User model. One comment can be made by one user. Many comments to one user
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
+
+    public Comment(String comment, String email, String name, Travel travel, User user) {
+        this.comment = comment;
+        this.email = email;
+        this.name = name;
+        this.travel = travel;
+        this.user = user;
+    }
 }

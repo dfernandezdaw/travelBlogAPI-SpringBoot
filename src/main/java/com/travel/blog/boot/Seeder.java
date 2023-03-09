@@ -1,9 +1,13 @@
 package com.travel.blog.boot;
 
 import com.travel.blog.models.Categories;
+import com.travel.blog.models.Comment;
 import com.travel.blog.models.Travel;
+import com.travel.blog.models.User;
 import com.travel.blog.repositories.CategoriesRepository;
+import com.travel.blog.repositories.CommentRepository;
 import com.travel.blog.repositories.TravelRepository;
+import com.travel.blog.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,15 +17,23 @@ import java.util.Date;
 public class Seeder implements CommandLineRunner {
     private TravelRepository travelRepository;
     private CategoriesRepository categoriesRepository;
+    private CommentRepository commentRepository;
+    private UserRepository userRepository;
 
-    public Seeder(TravelRepository travelRepository , CategoriesRepository categoriesRepository) {
+    public Seeder(TravelRepository travelRepository , CategoriesRepository categoriesRepository,
+                  CommentRepository commentRepository, UserRepository userRepository) {
         this.travelRepository = travelRepository;
         this.categoriesRepository = categoriesRepository;
+        this.commentRepository = commentRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         travelRepository.deleteAll();
+        categoriesRepository.deleteAll();
+        commentRepository.deleteAll();
+        userRepository.deleteAll();
 
         //Create travel
         //Create comment
@@ -38,6 +50,7 @@ public class Seeder implements CommandLineRunner {
         );
 
         categoriesRepository.save(category);
+        categoriesRepository.save(category2);
 
         Travel travel = new Travel(
                 "Travel to Paris",
@@ -59,6 +72,24 @@ public class Seeder implements CommandLineRunner {
 
         travelRepository.save(travel);
         travelRepository.save(travel2);
+
+        User user = new User(
+                "John",
+                "Doe",
+                "123456789"
+        );
+
+        userRepository.save(user);
+
+        Comment comment = new Comment(
+                "This is a comment",
+                "john@john.com",
+                "John",
+                travel,
+                user
+        );
+
+        commentRepository.save(comment);
     }
 
 

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -29,4 +28,10 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<>();
+
+    public User(String name, String username, String password) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
 }

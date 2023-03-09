@@ -31,7 +31,7 @@ public class Travel {
     @Column(name = "image", nullable = false)
     private String image;
 
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
     private Date date;
 
     @Column(name = "location", nullable = false)
