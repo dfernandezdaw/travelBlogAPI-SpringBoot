@@ -90,4 +90,34 @@ class TravelBlogApiApplicationTests {
                 .andExpect(jsonPath("$.email").value("david@david.es"))
                 .andExpect(jsonPath("$.name").value("David"));
     }
+
+    @Test
+    void update() throws Exception {
+        String testTravel = "{\"title\": \"Travel to London\", \"description\": \"This is a description\", \"date\": \"2020-01-01\", \"image\": \"https://www.google.com\", \"location\": \"London\" }";
+        mvc.perform(put("/api/travels/1").contentType("application/json")
+                .content(testTravel))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.title").value("Travel to London"))
+                .andExpect(jsonPath("$.description").value("This is a description"))
+                .andExpect(jsonPath("$.date").value("2020-01-01T00:00:00.000+00:00"))
+                .andExpect(jsonPath("$.image").value("https://www.google.com"))
+                .andExpect(jsonPath("$.location").value("London"));
+
+        String testCategory = "{\"name\": \"Business\"}";
+        mvc.perform(put("/api/categories/1").contentType("application/json")
+                .content(testCategory))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.name").value("Business"));
+
+        String testComment = "{\"comment\": \"This is a comment\", \"email\": \"david@david.es\", \"name\": \"David\"}";
+        mvc.perform(put("/api/comments/1").contentType("application/json")
+                .content(testComment))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.comment").value("This is a comment"))
+                .andExpect(jsonPath("$.email").value("david@david.es"))
+                .andExpect(jsonPath("$.name").value("David"));
+    }
 }
