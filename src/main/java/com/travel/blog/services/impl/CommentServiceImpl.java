@@ -8,6 +8,7 @@ import com.travel.blog.payloads.CommentDTO;
 import com.travel.blog.repositories.CommentRepository;
 import com.travel.blog.repositories.TravelRepository;
 import com.travel.blog.services.CommentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +16,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CommentSerciceImpl implements CommentService {
+public class CommentServiceImpl implements CommentService {
 
     private CommentRepository commentRepository;
     private TravelRepository travelRepository;
+    private ModelMapper mapper;
 
-    public CommentSerciceImpl(CommentRepository commentRepository, TravelRepository travelRepository) {
+    public CommentServiceImpl(CommentRepository commentRepository, TravelRepository travelRepository, ModelMapper mapper) {
         this.commentRepository = commentRepository;
         this.travelRepository = travelRepository;
+        this.mapper = mapper;
     }
 
     @Override
@@ -106,20 +109,10 @@ public class CommentSerciceImpl implements CommentService {
     }
 
     private CommentDTO convertToDTO(Comment comment) {
-        CommentDTO commentDTO = new CommentDTO();
-        commentDTO.setId(comment.getId());
-        commentDTO.setComment(comment.getComment());
-        commentDTO.setEmail(comment.getEmail());
-        commentDTO.setName(comment.getName());
-        return commentDTO;
+        return mapper.map(comment, CommentDTO.class);
     }
 
     private Comment convertToEntity(CommentDTO commentDTO) {
-        Comment comment = new Comment();
-        comment.setId(commentDTO.getId());
-        comment.setComment(commentDTO.getComment());
-        comment.setEmail(commentDTO.getEmail());
-        comment.setName(commentDTO.getName());
-        return comment;
+        return mapper.map(commentDTO, Comment.class);
     }
 }

@@ -5,6 +5,7 @@ import com.travel.blog.models.Travel;
 import com.travel.blog.payloads.TravelDTO;
 import com.travel.blog.repositories.TravelRepository;
 import com.travel.blog.services.TravelService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +15,11 @@ import java.util.stream.Collectors;
 public class TravelServiceImpl implements TravelService {
 
     private TravelRepository travelRepository;
+    private ModelMapper mapper; //Inject model mapper
 
-    public TravelServiceImpl(TravelRepository travelRepository) {
+    public TravelServiceImpl(TravelRepository travelRepository, ModelMapper mapper) {
         this.travelRepository = travelRepository;
+        this.mapper = mapper;
     }
 
     @Override
@@ -65,26 +68,26 @@ public class TravelServiceImpl implements TravelService {
 
     //Convert Entity to DTO
     private TravelDTO convertToDTO(Travel travel) {
-        TravelDTO travelDTO = new TravelDTO();
+        /*TravelDTO travelDTO = new TravelDTO();
         travelDTO.setId(travel.getId());
         travelDTO.setTitle(travel.getTitle());
         travelDTO.setDescription(travel.getDescription());
         travelDTO.setImage(travel.getImage());
         travelDTO.setDate(travel.getDate());
-        travelDTO.setLocation(travel.getLocation());
+        travelDTO.setLocation(travel.getLocation());*/
 
-        return travelDTO;
+        return mapper.map(travel, TravelDTO.class);
     }
 
     //Convert DTO to Entity
     private Travel convertToEntity(TravelDTO travelDTO) {
-        Travel travel = new Travel();
+        /*Travel travel = new Travel();
         travel.setTitle(travelDTO.getTitle());
         travel.setDescription(travelDTO.getDescription());
         travel.setImage(travelDTO.getImage());
         travel.setDate(travelDTO.getDate());
-        travel.setLocation(travelDTO.getLocation());
+        travel.setLocation(travelDTO.getLocation());*/
 
-        return travel;
+        return mapper.map(travelDTO, Travel.class);
     }
 }
