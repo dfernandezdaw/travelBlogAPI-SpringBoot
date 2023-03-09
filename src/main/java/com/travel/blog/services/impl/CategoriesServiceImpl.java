@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoriesServiceImpl implements CategoriesService {
@@ -36,12 +37,20 @@ public class CategoriesServiceImpl implements CategoriesService {
 
     @Override
     public List<CategoriesDTO> getAllCategories() {
-        return null;
+        List<Categories> categories = categoriesRepository.findAll();
+        return categories.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 
     @Override
     public CategoriesDTO updateCategories(Long categoriesId, CategoriesDTO categoriesDTO) {
-        return null;
+        Categories categories = categoriesRepository.findById(categoriesId).orElseThrow(
+                () -> new ResourceNotFoundException("Category", "id", categoriesId));
+
+        categories.setName(categoriesDTO.getName()); //Update name
+
+        Categories updatedCategories = categoriesRepository.save(categories);
+
+        return convertToDTO(updatedCategories);
     }
 
     @Override
