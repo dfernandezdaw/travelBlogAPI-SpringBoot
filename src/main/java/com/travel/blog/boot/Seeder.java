@@ -15,10 +15,10 @@ import java.util.Date;
 
 @Component
 public class Seeder implements CommandLineRunner {
-    private TravelRepository travelRepository;
-    private CategoriesRepository categoriesRepository;
-    private CommentRepository commentRepository;
-    private UserRepository userRepository;
+    private final TravelRepository travelRepository;
+    private final CategoriesRepository categoriesRepository;
+    private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
 
     public Seeder(TravelRepository travelRepository , CategoriesRepository categoriesRepository,
                   CommentRepository commentRepository, UserRepository userRepository) {
@@ -49,8 +49,13 @@ public class Seeder implements CommandLineRunner {
                 "Adventure"
         );
 
+        Categories category3 = new Categories(
+                "Family"
+        );
+
         categoriesRepository.save(category);
         categoriesRepository.save(category2);
+        categoriesRepository.save(category3);
 
         Travel travel = new Travel(
                 "Travel to Paris",
@@ -70,8 +75,18 @@ public class Seeder implements CommandLineRunner {
                 category2
         );
 
+        Travel travel3 = new Travel(
+                "Travel to Spain",
+                "Spain, officially the Kingdom of Spain, is a country in Southwestern Europe with some pockets of territory across the Strait of Gibraltar and the Atlantic Ocean. Its continental European territory is situated on the Iberian Peninsula. Its territory also includes two archipelagos: the Canary Islands off the coast of North Africa, and the Balearic Islands in the Mediterranean Sea. The African enclaves of Ceuta, Melilla, and Peñón de Vélez de la Gomera make Spain the only European country to have a physical border with an African country (Morocco). Several small islands in the Alboran Sea are also part of Spanish territory. The country's mainland is bordered to the south and east by the Mediterranean Sea except for a small land boundary with Gibraltar; to the north and northeast by France, Andorra, and the Bay of Biscay; and to the west and northwest by Portugal and the Atlantic Ocean respectively. Spain is the largest country in Southern Europe and the European Union by area, and the second-most populous after France. With an estimated population of over 47 million, Spain is the fourth-most populous EU member state and the seventh-most populous country in Europe. The country's capital and largest city is Madrid; other major urban areas include Barcelona, Valencia, Seville, Bilbao, and Málaga.",
+                "https://i.natgeofe.com/k/e800ca90-2b5b-4dad-b4d7-b67a48c96c91/spain-madrid.jpg?w=636&h=358",
+                date,
+                "Madrid",
+                category3
+        );
+
         travelRepository.save(travel);
         travelRepository.save(travel2);
+        travelRepository.save(travel3);
 
         User user = new User(
                 "John",
@@ -79,7 +94,14 @@ public class Seeder implements CommandLineRunner {
                 "123456789"
         );
 
+        User user2 = new User(
+                "Jane",
+                "Carter",
+                "123456789"
+        );
+
         userRepository.save(user);
+        userRepository.save(user2);
 
         Comment comment = new Comment(
                 "This is a comment",
@@ -89,7 +111,25 @@ public class Seeder implements CommandLineRunner {
                 user
         );
 
+        Comment comment2 = new Comment(
+                "I enjoyed this travel",
+                "jane@jane.com",
+                "Jane",
+                travel,
+                user2
+        );
+
+        Comment comment3 = new Comment(
+                "It was very disappointing",
+                "john@john.com",
+                "John",
+                travel2,
+                user
+        );
+
         commentRepository.save(comment);
+        commentRepository.save(comment2);
+        commentRepository.save(comment3);
     }
 
 
