@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,6 +33,6 @@ public class User {
     public User(String name, String username, String password) {
         this.name = name;
         this.username = username;
-        this.password = password;
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 }
