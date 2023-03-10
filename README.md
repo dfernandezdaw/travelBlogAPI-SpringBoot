@@ -12,19 +12,19 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Get token
 
-```http
+```
   POST /token
 ```
 
 #### Get all travels
 
-```http
+```
   GET /api/travels
 ```
 
 #### Get one travel
 
-```http
+```
   GET /api/travels/${id}
 ```
 
@@ -34,13 +34,13 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Create one travel
 
-```http
+```
   POST /api/travels
 ```
 
 #### Update one travel
 
-```http
+```
   PUT /api/travels/{id}
 ```
 | Parameter | Type     | Description                       |
@@ -49,7 +49,7 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
   
 #### Update one travel
 
-```http
+```
   DELETE /api/travels/{id}
 ```
 | Parameter | Type     | Description                       |
@@ -58,12 +58,12 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Get all comments
 
-```http
+```
   GET /api/comments
 ```
 #### Get all comments in a travel
 
-```http
+```
   GET /api/travels/{id}/comments
 ```
 | Parameter | Type     | Description                       |
@@ -72,7 +72,7 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Create one comment
 
-```http
+```
   POST /api/travels/{id}/comments
 ```
 | Parameter | Type     | Description                       |
@@ -81,7 +81,7 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Update one comment
 
-```http
+```
   PUT /api/travel/{id}/comments/{id_comment}
 ```
 | Parameter | Type     | Description                       |
@@ -91,7 +91,7 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Delete one comment
 
-```http
+```
   DELETE /api/travel/{id}/comments/{id_comment}
 ```
 | Parameter | Type     | Description                       |
@@ -101,17 +101,17 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Get all categories
 
-```http
+```
   GET /api/categories
 ```
 #### Create one category
 
-```http
+```
   POST /api/categories
 ```
 #### Get one categories
 
-```http
+```
   GET /api/categories/{id}
 ```
 | Parameter | Type     | Description                       |
@@ -120,7 +120,7 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Update one category
 
-```http
+```
   PUT /api/categories/{id}
 ```
 | Parameter | Type     | Description                       |
@@ -129,7 +129,7 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Delete one category
 
-```http
+```
   DELETE /api/categories/{id}
 ```
 
@@ -139,12 +139,12 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 
 #### Create one user
 
-```http
+```
   POST /api/users
 ```
 #### Delete one user
 
-```http
+```
   DELETE /api/users/{id}
 ```
 | Parameter | Type     | Description                       |
