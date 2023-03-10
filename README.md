@@ -43,8 +43,8 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   PUT /api/travels/{id}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                          |
+|:----------|:---------|:-------------------------------------|
 | `id`      | `string` | **Required**. Id of travel to update |
   
 #### Update one travel
@@ -52,8 +52,8 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   DELETE /api/travels/{id}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                          |
+|:----------|:---------|:-------------------------------------|
 | `id`      | `string` | **Required**. Id of travel to delete |
 
 #### Get all comments
@@ -66,8 +66,8 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   GET /api/travels/{id}/comments
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                                        |
+|:----------|:---------|:---------------------------------------------------|
 | `id`      | `string` | **Required**. Id of travel to retrieve it comments |
 
 #### Create one comment
@@ -75,8 +75,8 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   POST /api/travels/{id}/comments
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                                            |
+|:----------|:---------|:-------------------------------------------------------|
 | `id`      | `string` | **Required**. Id of travel in which comment is created |
 
 #### Update one comment
@@ -84,9 +84,9 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   PUT /api/travel/{id}/comments/{id_comment}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of travel |
+| Parameter    | Type     | Description                |
+|:-------------|:---------|:---------------------------|
+| `id`         | `string` | **Required**. Id of travel |
 | `id_comment` | `string` | **Required** Id of comment |
 
 #### Delete one comment
@@ -94,9 +94,9 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   DELETE /api/travel/{id}/comments/{id_comment}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of travel |
+| Parameter    | Type     | Description                |
+|:-------------|:---------|:---------------------------|
+| `id`         | `string` | **Required**. Id of travel |
 | `id_comment` | `string` | **Required** Id of comment |
 
 #### Get all categories
@@ -109,13 +109,13 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   POST /api/categories
 ```
-#### Get one categories
+#### Get one category
 
 ```
   GET /api/categories/{id}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                  |
+|:----------|:---------|:-----------------------------|
 | `id`      | `string` | **Required**. Id of category |
 
 #### Update one category
@@ -123,8 +123,8 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   PUT /api/categories/{id}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                            |
+|:----------|:---------|:---------------------------------------|
 | `id`      | `string` | **Required**. Id of category to update |
 
 #### Delete one category
@@ -133,11 +133,11 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
   DELETE /api/categories/{id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                            |
+|:----------|:---------|:---------------------------------------|
 | `id`      | `string` | **Required**. Id of category to delete |
 
-#### Create one user
+#### Create one user
 
 ```
   POST /api/users
@@ -147,8 +147,8 @@ All endpoints are secured, you have to authenticate with httpBasic on endpoint /
 ```
   DELETE /api/users/{id}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
+| Parameter | Type     | Description                        |
+|:----------|:---------|:-----------------------------------|
 | `id`      | `string` | **Required**. Id of user to delete |
 
 ## Authors
