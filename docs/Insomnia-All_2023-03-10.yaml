@@ -1,0 +1,569 @@
+_type: export
+__export_format: 4
+__export_date: 2023-03-10T01:53:08.488Z
+__export_source: insomnia.desktop.app:v2022.7.5
+resources:
+  - _id: req_032814baa7204ec7a976528eabebad2f
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678413097414
+    created: 1678412810825
+    url: http://localhost:8080/token
+    name: Token
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: Doe
+      password: "123456789"
+    metaSortKey: -1678412810825
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_3982d9ee56314fd1a362b3aa26997849
+    parentId: null
+    modified: 1678284048571
+    created: 1678284048571
+    name: Travel API
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_16bf00fe838d481fad0ba007f66db303
+    parentId: fld_459b328b93e04554bd3d19a0cec541bf
+    modified: 1678315794698
+    created: 1678284053061
+    url: http://localhost:8080/api/travels
+    name: Create Travel
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Travel to Pekin",
+        	"description": "Enjoy the beauty in Pekin",
+        	"image": "pekin.jpg",
+        	"date": "2023-03-08T22:49:21.563+00:00",
+        	"location": "Pekin"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678295453658
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_459b328b93e04554bd3d19a0cec541bf
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678296387687
+    created: 1678296387687
+    name: Travels
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678296387687
+    _type: request_group
+  - _id: req_23310228e1b04ab4af54353d570bb3a9
+    parentId: fld_459b328b93e04554bd3d19a0cec541bf
+    modified: 1678296402052
+    created: 1678291633798
+    url: http://localhost:8080/api/travels
+    name: Get all travels
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453708
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_da9f0b9f0df0460790546ba03de2784c
+    parentId: fld_459b328b93e04554bd3d19a0cec541bf
+    modified: 1678315806670
+    created: 1678292424297
+    url: http://localhost:8080/api/travels/1
+    name: Get one travel
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453758
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7fff4a1650d74ee7a07f36e9017c4205
+    parentId: fld_459b328b93e04554bd3d19a0cec541bf
+    modified: 1678352437345
+    created: 1678294537947
+    url: http://localhost:8080/api/travels/2
+    name: Update travel
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Travel to Madrid",
+        	"description": "Enjoy the beauty in Pekin",
+        	"image": "pekin.jpg",
+        	"date": "2023-01-23",
+        	"location": "Pekin"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678295453808
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a4cddda0b5c1426d9104a63c5644ef32
+    parentId: fld_459b328b93e04554bd3d19a0cec541bf
+    modified: 1678296393724
+    created: 1678295453858
+    url: http://localhost:8080/api/travels/1
+    name: Delete travel
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453858
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a78d84a80211445d820533656c96336c
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678300326969
+    created: 1678297674970
+    url: http://localhost:8080/api/travels/1/comments/1
+    name: Delete comment
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453833
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ddd25c40c7f3473caf847e29db5fda85
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678297662924
+    created: 1678297662924
+    name: Comments
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678297662924
+    _type: request_group
+  - _id: req_7f10ad18f4144f80b1b9531fd43aa505
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678319789754
+    created: 1678300341215
+    url: http://localhost:8080/api/travels/2/comments
+    name: Create comment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"comment": "I enjoyed a lot Pekin, it was really fun to experiment it",
+        	"email": "david@david.es",
+        	"name": "David"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678295453783
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d533cc8ef42141b089bd8d2cf09ec462
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678319802442
+    created: 1678313609761
+    url: http://localhost:8080/api/travels/1/comments
+    name: Get all comments of a travel
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453808
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f3ce6d0774074007bfe64f1661b5c1eb
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678351439602
+    created: 1678319818962
+    url: http://localhost:8080/api/travels/1/comments/1
+    name: Get one comment
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453795.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d6650c0b9d5e49b99b011ce05b50c925
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678406791219
+    created: 1678320784073
+    url: http://localhost:8080/api/travels/2/comments/4
+    name: Get one comment of a travel
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453801.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9cee7e7a848f47a4909fd77ba4f269c0
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678322489084
+    created: 1678322438743
+    url: http://localhost:8080/api/travels/1/comments/1
+    name: Update comment
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"comment": "This was a comment, now not",
+        	"email": "john@john.com",
+        	"name": "John"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678295453789.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3cd1a287fe614a5a962fe16d807b8df4
+    parentId: fld_ddd25c40c7f3473caf847e29db5fda85
+    modified: 1678392632494
+    created: 1678363534527
+    url: http://localhost:8080/api/comments
+    name: Get all comments
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678295453820.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ad06764da6f24f3ca6665f2024ee7e92
+    parentId: fld_a283c1661a4c491fbf24fcdc43d60029
+    modified: 1678350043736
+    created: 1678349917478
+    url: http://localhost:8080/api/categories
+    name: Create category
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Puenting"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678349917478
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a283c1661a4c491fbf24fcdc43d60029
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678350041032
+    created: 1678350041032
+    name: Categories
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678350041032
+    _type: request_group
+  - _id: req_175f44689d7a4d91801007548d57ab7a
+    parentId: fld_a283c1661a4c491fbf24fcdc43d60029
+    modified: 1678351726066
+    created: 1678351379388
+    url: http://localhost:8080/api/categories/1
+    name: Get one category
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678349917428
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f9c1c8fd3ad540f58eaf979f68865506
+    parentId: fld_a283c1661a4c491fbf24fcdc43d60029
+    modified: 1678413121800
+    created: 1678351912909
+    url: http://localhost:8080/api/categories
+    name: Get all categories
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiRG9lIiwiZXhwIjoxNjc4NDE2Njk4LCJpYXQiOjE2Nzg0MTMwOTgsInNjb3BlIjoiIn0.N7Qdm7f6Yw0PGC1PrIX4y70-8DJKC1G5O-Ncpd72DwfDzAzegODfXcCGWdfesH-_ArAmjkJPJZSFs9llbMAn99uET2tsxs8iZ1ZVuRxqvFUjjZLs_bHfjViXck_AWAp240BXGDJwTDBSYeqUTSdbvovPReflP9yXIgDME0FOALew8nDefatFHH6i7Njfkq_O_ftOs-uDElxYirkFeHWmn0CncBLrrlrIvHHDaYYp5UDezUMO7Pgz4L629LuAmCWqp9oyQtLRg52RgBwAeajD6sz774zN17IEq9EjSmIG-3B_vCiQc8dFAe60c-qdQTxymKzDiWNoaaLEi1Xr4tRALQ
+    metaSortKey: -1678349917453
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f31c4258d59640019e197c3830c72388
+    parentId: fld_a283c1661a4c491fbf24fcdc43d60029
+    modified: 1678352306762
+    created: 1678352269420
+    url: http://localhost:8080/api/categories/2
+    name: Update category
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Adventure updated"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678349917378
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_52f5d34701924f0b9d89fd83d6e3d119
+    parentId: fld_a283c1661a4c491fbf24fcdc43d60029
+    modified: 1678352631310
+    created: 1678352591316
+    url: http://localhost:8080/api/categories/2
+    name: Delete category
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678349917328
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c6e0578f3607420f8e3b23efd315ed3d
+    parentId: fld_a828e5ee4e124769b6f8fb2f0a498542
+    modified: 1678407662140
+    created: 1678406841388
+    url: http://localhost:8080/api/users
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "David",
+        	"username": "david",
+        	"password": "pestillo"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678406841388
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a828e5ee4e124769b6f8fb2f0a498542
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678406840243
+    created: 1678406840243
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678406840243
+    _type: request_group
+  - _id: req_f64839f308f74687bbef530a0f0d9f0c
+    parentId: fld_a828e5ee4e124769b6f8fb2f0a498542
+    modified: 1678407989792
+    created: 1678407953862
+    url: http://localhost:8080/api/users/1
+    name: Delete User
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678406841338
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_fb9416d874bebced1e982507a9efc44e30321f7b
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678284048574
+    created: 1678284048574
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1678284048574
+    _type: environment
+  - _id: jar_fb9416d874bebced1e982507a9efc44e30321f7b
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678284048575
+    created: 1678284048575
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_73ad241549484e84bf4a804e66312457
+    parentId: wrk_3982d9ee56314fd1a362b3aa26997849
+    modified: 1678284048571
+    created: 1678284048571
+    fileName: Travel API
+    contents: ""
+    contentType: yaml
+    _type: api_spec
