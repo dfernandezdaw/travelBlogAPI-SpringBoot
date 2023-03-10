@@ -14,15 +14,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
-
-/*
-* Tests are individuals. If they are executed all together, they will fail.
-*/
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -40,6 +37,7 @@ class TravelBlogApiApplicationTests {
     UserRepository userRepository;
 
     @Test
+    @Transactional
     void contextLoads() {
         assert travelRepository.count() == 3;
         assert commentRepository.count() == 3;
@@ -48,6 +46,7 @@ class TravelBlogApiApplicationTests {
     }
 
     @Test
+    @Transactional
     void rootWhenUnauthenticatedThen401() throws Exception {
         this.mvc.perform(get("/"))
                 .andExpect(status().isUnauthorized());
@@ -64,6 +63,7 @@ class TravelBlogApiApplicationTests {
     }
 
     @Test
+    @Transactional
     void getAll() throws Exception {
         mvc.perform(get("/api/travels").header("Authorization","Bearer "+token).contentType("application/json"))
                 .andExpect(status().isOk())
@@ -89,6 +89,7 @@ class TravelBlogApiApplicationTests {
     }
 
     @Test
+    @Transactional
     void getById() throws Exception {
         mvc.perform(get("/api/travels/1").header("Authorization","Bearer "+token).contentType("application/json"))
                 .andExpect(status().isOk())
@@ -101,6 +102,7 @@ class TravelBlogApiApplicationTests {
     }
 
     @Test
+    @Transactional
     void create() throws Exception {
         mvc.perform(post("/api/travels").header("Authorization","Bearer "+token).contentType("application/json")
                 .content("{\"title\": \"Travel to London\", \"description\": \"This is a description\", \"date\": \"2020-01-01\", \"image\": \"https://www.google.com\", \"location\": \"London\" }"))
@@ -122,6 +124,7 @@ class TravelBlogApiApplicationTests {
     }
 
     @Test
+    @Transactional
     void update() throws Exception {
         String testTravel = "{\"title\": \"Travel to London\", \"description\": \"This is a description\", \"date\": \"2020-01-01\", \"image\": \"https://www.google.com\", \"location\": \"London\" }";
         mvc.perform(put("/api/travels/1").header("Authorization","Bearer "+token).contentType("application/json")
@@ -152,6 +155,7 @@ class TravelBlogApiApplicationTests {
     }
 
     @Test
+    @Transactional
     void delete() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/api/travels/2").header("Authorization","Bearer "+token).contentType("application/json"))
                 .andExpect(status().isOk());
